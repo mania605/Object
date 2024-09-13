@@ -1,43 +1,43 @@
-//ES5 객체 지향
-function Student1(props) {
-  this.name = props.name;
-  this.age = props.age;
-}
+//구조분해할당, 비구조할당 (Destructure Assignment)
 
-//생성자에 자동 생성된 prototype이란 공통 공간에 앞으로 재활용될 함수 등록(메서드)
-Student1.prototype.inform = function () {
-  console.log('My name is ' + this.name + '! ' + 'I am ' + this.age + ' years old.');
+const colors = ['red', 'green', 'blue'];
+const color1 = colors[0];
+const color2 = colors[1];
+const color3 = colors[2];
+
+//const FavoraitColor = ['hotpink', 'aqua', 'violet'];
+//->
+//const [c1, c2, c3] = ['hotpink', 'aqua', 'violet'];
+//console.log(c3);
+
+//이렇게 만들어도 됨.
+const myFavoraitColor = ['hotpink', 'aqua', 'violet'];
+const [c1, c2, c3] = myFavoraitColor;
+console.log(c3);
+
+
+//다른 예시
+
+const student1 = {
+  name: 'Andy',
+  age: 30,
+  address: 'Seoul'
 };
 
-//new 연산자로 생성자로부터 동일한 툴을 가지고 있는 복사본 객체인 인스턴스를 생성
-const instance = new Student1({ name: 'David', age: 20 });
-//복사가 된 각 개별적인  인스턴스들은 자유롭게 rpototype에 접근해서 등록된 메서드를 호출가능
-instance.inform();
+// const name = student1.name;
+// const age = student1.age;
+// const address = student1.address;
 
 
+//const {name, age, address} = student1;
+//console.log(name);
+//console.log(age);
+//console.log(address);
 
-
-//ES6에서부터는 위의 불편한 프로토타입 기반 객체지향 문법을 마치 JAVA의 클래스 문법을 따라해서 코드 가독성을 높임
-class Student2 {
-  constructor(props) {
-    this.name = props.name;
-    this.age = props.age;
-  }
-
-  inform() {
-    //tempalte literal 문자열 안에 변수를 삽입하기 위한 ES6 전용의 템플릿 문법
-    //console.log('My name is ' + this.name + '! ' + 'I am ' + this.age + ' years old.');
-    console.log('My Name is ${this.name}. and I am ${this.age} years old.');
-  }
-}
-
-const instance2 = new Student2({ name: 'Emily', age: 30 });
-console.log(instance2);
-
-
-
-
-
+const { name: name1, age, address } = student1;
+console.log(name);
+console.log(age);
+console.log(address);
 
 
 

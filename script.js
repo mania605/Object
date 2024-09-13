@@ -52,7 +52,7 @@ student2.inform();
 
 //생성자를 통한 인스턴스를 복사하는 법
 function Student(props) {
-  this.name = props.name;
+  this.name = props.name; //생성자안쪽의 this:해당 생성자를 통해서 앞으로 복사가 될 인스턴스 객체를 지정
   this.age = props.age || 20; //대입되는 값 뒤에 || 연산자를 입력하면 해당 값이 undeined대신 대체값을 설정
   this.isFemale = props.isFemale;
 }
@@ -63,6 +63,9 @@ function Student(props) {
 const studentCopy1 = new Student({ name: 'Emily', isFemale: true });
 const studentCopy2 = new Student({ name: 'David', isFemale: false });
 const studentCopy3 = new Student({ name: 'Michael', isFemale: false, age: 19 });
+//생성자 함수를 통해서 인스턴스라는 복사본을 만들면 약속된 정보값과 매칭되지 않는 값을 거를 수 있음.
+const studentCopy4 = new Student({ name: 'Paul', isFemale: false, address: 'Seoul' });
 console.log(studentCopy1);
 console.log(studentCopy2);
 console.log(studentCopy3);
+console.log(studentCopy4);

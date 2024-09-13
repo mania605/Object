@@ -56,6 +56,10 @@ function Student(props) {
   this.age = props.age || 20; //대입되는 값 뒤에 || 연산자를 입력하면 해당 값이 undeined대신 대체값을 설정
   this.isFemale = props.isFemale;
 }
+Student.prototype.inform = function () {
+  console.log('My name is ' + this.name + ' and I am' + this.age + 'years old')
+}
+
 //아래와 같이 new 연산자를 이용해서 Student 생성자 함수 호출하면
 //인스턴스라는 특별한 복사본 객체를 생성가능
 //인스턴스 객체는 같은 생성자함수를 통해서 생성된 모든 인스턴스들이 공유할 수 있는 prototype이라는 공간을 공유
@@ -69,3 +73,8 @@ console.log(studentCopy1);
 console.log(studentCopy2);
 console.log(studentCopy3);
 console.log(studentCopy4);
+
+studentCopy1.inform();
+studentCopy2.inform();
+studentCopy3.inform();
+studentCopy4.inform();
